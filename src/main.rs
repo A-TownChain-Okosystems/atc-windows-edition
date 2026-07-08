@@ -1,8 +1,16 @@
-// ATC Windows Edition -- Sprint 0 Platzhalter
-// Rust mit std (kein no_std/bare-metal), Ziel: x86_64-pc-windows-msvc
+// ATC Windows Edition -- Sprint 1: minimales GUI-Grundgeruest
+// Rust mit std, GUI via eframe/egui. Ziel: x86_64-pc-windows-msvc.
 //
-// Scope (Desktop-GUI vs. CLI/Dienst) noch nicht final entschieden -- siehe README.md.
+// Naechste Views (Kandidaten): Wallet, Explorer, Dashboard -- siehe README.md.
 
-fn main() {
-    println!("ATC Windows Edition -- Sprint 0 Platzhalter. Scope noch offen (siehe README.md).");
+use eframe::egui;
+
+fn main() -> eframe::Result<()> {
+    let options = eframe::NativeOptions::default();
+    eframe::run_simple_native("ATC Windows Edition", options, move |ctx, _frame| {
+        egui::CentralPanel::default().show(ctx, |ui| {
+            ui.heading("ATC Windows Edition -- Sprint 1 Platzhalter");
+            ui.label("Naechste View folgt: Wallet / Explorer / Dashboard (siehe README.md).");
+        });
+    })
 }
